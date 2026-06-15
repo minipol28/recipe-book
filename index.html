@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -140,36 +138,36 @@
       <p>레시피를 모으고, 이번 주 한 끼 식단을 계획해요</p>
     </div>
     <div class="tools">
-      <button id="deployBtn" onclick="deployToGithub()" title="앱 코드 업데이트">☁️ 앱 업데이트</button>
+      <button id="deployBtn" onclick="deployToGithub()" title="앱 코드 업데이트" disabled="">⏳ 업로드 중...</button>
       <button onclick="openApiKeySetting()" title="설정">🔑</button>
     </div>
   </header>
 
   <div class="tabs">
     <button id="tab-plan" class="active" onclick="showTab('plan')">📅 식단표</button>
-    <button id="tab-recipes" onclick="showTab('recipes')">📖 레시피</button>
+    <button id="tab-recipes" onclick="showTab('recipes')" class="">📖 레시피</button>
     <button id="tab-shop" onclick="showTab('shop')">🛒 장보기</button>
   </div>
 
   <!-- 식단표 -->
   <section id="page-plan" class="page active">
-    <p class="weektitle" id="weekTitle"></p>
-    <div class="planlist" id="planList"></div>
+    <p class="weektitle" id="weekTitle">📅 6월 3주차</p>
+    <div class="planlist" id="planList"><div class="day-row"><div class="dname">월</div><div class="dmeal-list"><div class="dmeal-item"><span class="dmeal has" onclick="openDetail('r2w11hf5')">차오미엔(판다익스프레스, 야채버전)</span><button class="x" title="삭제" onclick="removeFromDay('월','r2w11hf5')" style="font-size:12px;padding:0 4px">×</button></div><div class="dmeal-item"><span class="dmeal has" onclick="openDetail('rnsa4blr')">오렌지치킨</span><button class="x" title="삭제" onclick="removeFromDay('월','rnsa4blr')" style="font-size:12px;padding:0 4px">×</button></div><button class="dmeal-add" onclick="askDayFromPlan('월')" title="추가">＋</button></div></div><div class="day-row"><div class="dname">화</div><div class="dmeal-list"><div class="dmeal none" onclick="askDayFromPlan('화')">+ 레시피에서 추가</div></div></div><div class="day-row"><div class="dname">수</div><div class="dmeal-list"><div class="dmeal none" onclick="askDayFromPlan('수')">+ 레시피에서 추가</div></div></div><div class="day-row"><div class="dname">목</div><div class="dmeal-list"><div class="dmeal none" onclick="askDayFromPlan('목')">+ 레시피에서 추가</div></div></div><div class="day-row"><div class="dname">금</div><div class="dmeal-list"><div class="dmeal none" onclick="askDayFromPlan('금')">+ 레시피에서 추가</div></div></div><div class="day-row"><div class="dname">토</div><div class="dmeal-list"><div class="dmeal none" onclick="askDayFromPlan('토')">+ 레시피에서 추가</div></div></div><div class="day-row"><div class="dname">일</div><div class="dmeal-list"><div class="dmeal none" onclick="askDayFromPlan('일')">+ 레시피에서 추가</div></div></div></div>
     <div class="archive" id="archiveWrap"></div>
   </section>
 
   <!-- 레시피 모음 -->
   <section id="page-recipes" class="page">
     <div class="search">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3-3"></path></svg>
       <input id="searchInput" placeholder="레시피/재료 검색 (예: 오이)" oninput="renderRecipes()">
     </div>
     <p class="hint">제목뿐 아니라 재료/양념/조리법까지 검색돼요</p>
     <div class="topbar">
-      <span class="hint" id="countHint" style="margin:0"></span>
+      <span class="hint" id="countHint" style="margin:0">총 9개</span>
       <button class="btn btn-accent btn-sm" onclick="openForm()">+ 레시피 추가</button>
     </div>
-    <div class="rlist" id="recipeList"></div>
+    <div class="rlist" id="recipeList"><div class="ritem" onclick="openDetail('r5dr3non')"><div><div class="t">굴라쉬 스프 (육개장 스타일)</div></div></div><div class="ritem" onclick="openDetail('r6u19ch7')"><div><div class="t">김치참치전</div></div></div><div class="ritem" onclick="openDetail('r9i4prpm')"><div><div class="t">삼겹비빔국수</div></div></div><div class="ritem" onclick="openDetail('r48trc36')"><div><div class="t">순살고등어강정</div></div></div><div class="ritem" onclick="openDetail('rnsa4blr')"><div><div class="t">오렌지치킨</div></div></div><div class="ritem" onclick="openDetail('r09nqzf5')"><div><div class="t">오이무침</div></div><span class="badge">방법 2가지</span></div><div class="ritem" onclick="openDetail('ruw51puu')"><div><div class="t">우삼겹애호박덮밥</div></div></div><div class="ritem" onclick="openDetail('rad2nov5')"><div><div class="t">차오미엔(닭고기 있는 버전)</div></div><span class="badge">방법 3가지</span></div><div class="ritem" onclick="openDetail('r2w11hf5')"><div><div class="t">차오미엔(판다익스프레스, 야채버전)</div></div></div></div>
   </section>
 
   <!-- 장보기리스트 -->
@@ -180,15 +178,17 @@
     </div>
     <div class="topbar">
       <span class="hint" id="shopCount" style="margin:0"></span>
-      <button class="btn btn-ghost btn-sm" id="clearDoneBtn" onclick="clearDoneShop()">완료한 항목 비우기</button>
+      <button class="btn btn-ghost btn-sm" id="clearDoneBtn" onclick="clearDoneShop()" style="display: none;">완료한 항목 비우기</button>
     </div>
-    <div class="shoplist" id="shopList"></div>
+    <div class="shoplist" id="shopList"><div class="empty">살 것을 입력해보세요 🛒</div></div>
   </section>
 </div>
 
 <!-- 상세 보기 -->
 <div class="overlay" id="detailOverlay" onclick="if(event.target===this)closeDetail()">
-  <div class="modal" id="detailModal"></div>
+  <div class="modal" id="detailModal"><div class="mh"><div><h2>김치찌개</h2></div><button class="close" onclick="closeDetail()">×</button></div><div class="sec"><h3>🥗 재료</h3><div class="body">신김치 1/4포기, 돼지고기 200g, 두부 1/2모, 대파 1대, 양파 1/2개</div></div><div class="sec"><h3>🧂 소스/양념</h3><div class="body">고춧가루 1T, 국간장 1T, 다진마늘 1T, 설탕 약간</div></div><div class="sec"><h3>👩‍🍳 조리순서</h3><div class="body">1. 돼지고기와 김치를 볶는다.
+2. 물을 붓고 양념을 넣어 끓인다.
+3. 두부/대파를 넣고 한 번 더 끓인다.</div></div><div class="sec"><h3>🔗 출처</h3><div class="body">백종원 만능 레시피</div></div><div class="modal-actions"><button class="btn btn-green" onclick="askDay('rmwqr6by')">＋ 이번주 식단표에 추가하기</button><button class="btn btn-ghost btn-sm" onclick="openForm('rmwqr6by')">수정</button><button id="delBtn_rmwqr6by" class="btn btn-ghost btn-sm" onclick="confirmDelete('rmwqr6by')" style="background: rgb(192, 57, 43); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial;">정말 삭제할게요</button></div><div class="pickwrap" id="dayPick"><p class="hint" style="margin:6px 2px 2px">어느 요일에 추가할까요?</p><div class="days" id="dayBtns"></div></div></div>
 </div>
 
 <!-- 추가/수정 폼 -->
@@ -196,7 +196,8 @@
   <div class="modal">
     <div class="mh"><h2 id="formTitle">레시피 추가</h2><button class="close" onclick="closeForm()">×</button></div>
     <div class="field"><label>요리 제목</label><input id="f-title" placeholder="예: 오이무침"></div>
-    <div id="methodsContainer"></div>
+    <div id="methodsContainer"><div class="methodbox" data-idx="0"><div class="mhd"><strong>방법 1</strong><button class="btn btn-ghost btn-sm" onclick="removeMethodBlock(this)">삭제</button></div><div class="field"><label>방법 이름 (선택)</label><input class="m-label" value="" placeholder="예: 방법1 (백종원)"></div><div class="field"><label>재료</label><textarea class="m-ing" placeholder="오이 2개, 소금 약간"></textarea></div><div class="field"><label>소스/양념</label><textarea class="m-sauce" placeholder="고춧가루 1.5T, 식초 2T..."></textarea></div><div class="field"><label>조리순서</label><textarea class="m-steps" placeholder="1. ...
+2. ..."></textarea></div><div class="field"><label>출처</label><input class="m-source" value="" placeholder="예: 백종원 유튜브"></div></div></div>
     <button class="btn btn-ghost btn-sm" onclick="addMethodBlock()">+ 다른 방법 추가</button>
     <div class="modal-actions">
       <button class="btn btn-accent" onclick="saveRecipe()">저장</button>
@@ -205,7 +206,7 @@
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast">월요일에 「오렌지치킨」 추가됨</div>
 
 <script>
 /* ---------- GitHub constants ---------- */
@@ -754,13 +755,13 @@ renderPlan();
 renderShop();
 </script>
   <!-- Pick Recipe Modal -->
-  <div id="pickRecipeModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:999;align-items:center;justify-content:center;padding:20px">
+  <div id="pickRecipeModal" style="display: none; position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.45); z-index: 999; align-items: center; justify-content: center; padding: 20px;">
     <div style="background:#fff;border-radius:16px;width:100%;max-width:380px;max-height:70vh;display:flex;flex-direction:column">
       <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--border)">
-        <h2 style="margin:0;font-size:17px"><span id="pickRecipeDay"></span>요일에 추가할 레시피</h2>
+        <h2 style="margin:0;font-size:17px"><span id="pickRecipeDay">월</span>요일에 추가할 레시피</h2>
         <button onclick="closePick()" style="background:none;border:none;font-size:22px;cursor:pointer">×</button>
       </div>
-      <div id="pickRecipeList" style="overflow-y:auto;flex:1"></div>
+      <div id="pickRecipeList" style="overflow-y:auto;flex:1"><div class="pick-recipe-item" onclick="addToPlan('r09nqzf5','월');closePick()">오이무침</div><div class="pick-recipe-item" onclick="addToPlan('r5dr3non','월');closePick()">굴라쉬 스프 (육개장 스타일)</div><div class="pick-recipe-item" onclick="addToPlan('ruw51puu','월');closePick()">우삼겹애호박덮밥</div><div class="pick-recipe-item" onclick="addToPlan('r6u19ch7','월');closePick()">김치참치전</div><div class="pick-recipe-item" onclick="addToPlan('r48trc36','월');closePick()">순살고등어강정</div><div class="pick-recipe-item" onclick="addToPlan('r9i4prpm','월');closePick()">삼겹비빔국수</div><div class="pick-recipe-item" onclick="addToPlan('rnsa4blr','월');closePick()">오렌지치킨</div><div class="pick-recipe-item" onclick="addToPlan('rad2nov5','월');closePick()">차오미엔(닭고기 있는 버전)</div><div class="pick-recipe-item" onclick="addToPlan('r2w11hf5','월');closePick()">차오미엔(판다익스프레스, 야채버전)</div></div>
     </div>
   </div>
   <!-- API Key Modal -->
@@ -778,5 +779,6 @@ renderShop();
       <button onclick="saveApiKey()" style="width:100%;padding:12px;background:#b5533c;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer">저장</button>
     </div>
   </div>
-</body>
-</html>
+
+
+</body></html>
